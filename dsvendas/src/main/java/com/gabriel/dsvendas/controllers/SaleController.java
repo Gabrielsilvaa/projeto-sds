@@ -1,7 +1,9 @@
 package com.gabriel.dsvendas.controllers;
 
 import com.gabriel.dsvendas.dto.SaleDTO;
+import com.gabriel.dsvendas.dto.SaleSumDTO;
 import com.gabriel.dsvendas.dto.SellerDTO;
+import com.gabriel.dsvendas.entity.Sale;
 import com.gabriel.dsvendas.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,6 +25,12 @@ public class SaleController {
     @GetMapping
     public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable){
         Page<SaleDTO> list = saleService.findAll(pageable);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/sum-by-seller")
+    public ResponseEntity<List<SaleSumDTO>> amountGroupBySaller(){
+        List<SaleSumDTO> list = saleService.amountGroupBySaller();
         return ResponseEntity.ok(list);
     }
 }
