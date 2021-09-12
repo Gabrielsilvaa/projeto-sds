@@ -1,6 +1,7 @@
 package com.gabriel.dsvendas.service;
 
 import com.gabriel.dsvendas.dto.SaleDTO;
+import com.gabriel.dsvendas.dto.SaleSuccessDTO;
 import com.gabriel.dsvendas.dto.SaleSumDTO;
 import com.gabriel.dsvendas.entity.Sale;
 import com.gabriel.dsvendas.repository.SaleRepository;
@@ -33,6 +34,11 @@ public class SaleService {
     @Transactional(readOnly = true)
     public List<SaleSumDTO> amountGroupBySaller(){
        return saleRepository.amountGroupBySaller();
+    }
+
+    @Transactional(readOnly = true)
+    public List<SaleSuccessDTO> successGroupBySaller(){
+        return saleRepository.successGroupBySaller();
     }
 
 }

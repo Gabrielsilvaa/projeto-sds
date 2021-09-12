@@ -1,6 +1,7 @@
 package com.gabriel.dsvendas.controllers;
 
 import com.gabriel.dsvendas.dto.SaleDTO;
+import com.gabriel.dsvendas.dto.SaleSuccessDTO;
 import com.gabriel.dsvendas.dto.SaleSumDTO;
 import com.gabriel.dsvendas.dto.SellerDTO;
 import com.gabriel.dsvendas.entity.Sale;
@@ -31,6 +32,12 @@ public class SaleController {
     @GetMapping("/sum-by-seller")
     public ResponseEntity<List<SaleSumDTO>> amountGroupBySaller(){
         List<SaleSumDTO> list = saleService.amountGroupBySaller();
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/amount-by-seller")
+    public ResponseEntity<List<SaleSuccessDTO>> successGroupBySaller(){
+        List<SaleSuccessDTO> list = saleService.successGroupBySaller();
         return ResponseEntity.ok(list);
     }
 }

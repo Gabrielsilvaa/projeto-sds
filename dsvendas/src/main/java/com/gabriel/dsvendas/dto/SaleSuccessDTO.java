@@ -10,14 +10,15 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaleSumDTO implements Serializable {
+public class SaleSuccessDTO implements Serializable {
 
     private String sellerName;
-    private Double sum;
+    private Long visited;
+    private Long deals;
 
-    public SaleSumDTO(Seller seller, Double sum) {
+    public SaleSuccessDTO(Seller seller, Long visited, Long deals) {
         this.sellerName = seller.getName();
-        this.sum = sum;
+        this.visited = visited;
+        this.deals = deals;
     }
-
 }
